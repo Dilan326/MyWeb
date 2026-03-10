@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilan | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#a855f7',
+                        accent: '#06b6d4',
+                        darkbg: '#0f172a',
+                        cardbg: 'rgba(30, 41, 59, 0.7)',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+    class="bg-darkbg text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 -right-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-8 left-20 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-darkbg/50 border-b border-white/10"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary hover:opacity-80 transition">
+                DILAN.COM
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide">
+                <li><a href="#about" class="hover:text-primary transition-colors duration-300">About</a></li>
+                <li><a href="#skills" class="hover:text-secondary transition-colors duration-300">Skills</a></li>
+                <li><a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a></li>
+                <li><a href="#contact" class="hover:text-white transition-colors duration-300">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-darkbg/95 z-40 hidden flex-col items-center justify-center space-y-8 text-2xl font-semibold backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl focus:outline-none">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#about" class="mobile-link hover:text-primary transition-colors">About</a>
+        <a href="#skills" class="mobile-link hover:text-secondary transition-colors">Skills</a>
+        <a href="#projects" class="mobile-link hover:text-accent transition-colors">Projects</a>
+        <a href="#contact" class="mobile-link hover:text-white transition-colors">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative px-6 pt-20">
+        <div class="max-w-4xl mx-auto text-center z-10 animate-fade-in-up">
+            <p class="text-primary font-semibold mb-4 tracking-widest uppercase glow-text">Welcome to my space</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Hi, I'm <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">Dilan</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                A passionate Developer building awesome Software & AI projects. I transform ideas into elegant code.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects"
+                    class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
+                    View My Work
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 rounded-full border border-slate-600 hover:border-white text-white font-bold hover:bg-white/5 transition-all duration-300 w-full sm:w-auto">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-slate-400 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-5xl mx-auto reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">About Me</span>
+            </h2>
+            <div class="glass-card p-8 md:p-12 rounded-3xl flex flex-col md:flex-row gap-10 items-center">
+                <div class="w-full md:w-1/3 relative group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1549692520-0715a5588cdf?auto=format&fit=crop&w=500&q=80"
+                        alt="Dilan"
+                        class="relative rounded-2xl w-full object-cover shadow-2xl grayscale group-hover:grayscale-0 transition duration-500">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4">Who am I?</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        I am a dedicated developer with a strong passion for Software Engineering and Artificial
+                        Intelligence. I love building scalable applications, designing databases, and creating intuitive
+                        user interfaces. My journey is driven by continuous learning and pushing exactly what is
+                        possible through code.
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        When I'm not coding, you can find me exploring new AI technologies, contributing to open-source,
+                        or solving complex algorithmic challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 relative bg-slate-900/30">
+        <div class="max-w-5xl mx-auto reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">My Tech
+                    Stack</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Python -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i
+                        class="fab fa-python text-5xl mb-4 text-[#3776AB] group-hover:scale-110 transition duration-300"></i>
+                    <span class="font-bold text-lg tracking-wide">Python</span>
+                </div>
+                <!-- React -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i
+                        class="fab fa-react text-5xl mb-4 text-[#61DAFB] group-hover:scale-110 transition duration-300 animate-[spin_10s_linear_infinite]"></i>
+                    <span class="font-bold text-lg tracking-wide">React</span>
+                </div>
+                <!-- SQL -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i
+                        class="fas fa-database text-5xl mb-4 text-[#336791] group-hover:scale-110 transition duration-300"></i>
+                    <span class="font-bold text-lg tracking-wide">SQL</span>
+                </div>
+                <!-- JavaScript -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i class="fab fa-js text-5xl mb-4 text-[#F7DF1E] group-hover:scale-110 transition duration-300"></i>
+                    <span class="font-bold text-lg tracking-wide">JavaScript</span>
+                </div>
+                <!-- FastAPI -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i
+                        class="fas fa-bolt text-5xl mb-4 text-[#009688] group-hover:scale-110 transition duration-300"></i>
+                    <span class="font-bold text-lg tracking-wide">FastAPI</span>
+                </div>
+                <!-- GIT -->
+                <div
+                    class="tech-card glass-card p-6 flex flex-col items-center justify-center rounded-2xl hover:bg-white/5 transition duration-300 cursor-pointer group">
+                    <i
+                        class="fab fa-git-alt text-5xl mb-4 text-[#F05032] group-hover:scale-110 transition duration-300"></i>
+                    <span class="font-bold text-lg tracking-wide">GIT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Featured
+                    Projects</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project 1 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-48 overflow-hidden bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80"
+                            alt="Code"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkbg to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">AI / Machine
+                            Learning</span>
+                        <h3 class="text-xl font-bold mb-3 text-white">Crypto Currency Analysis Tool</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-3">Developed an AI-powered cryptocurrency
+                            analysis tool that analyzes market trends and indicators to generate intelligent trading
+                            insights.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">Python</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">FastAPI</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">HTML/CSS</span>
+                        </div>
+                        <a href="https://github.com/Dilan326/crypto-analysis-tool-frontend.git"
+                            class="inline-flex items-center text-accent hover:text-white transition-colors text-sm font-semibold">
+                            View Project <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-48 overflow-hidden bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                            alt="Web Dev"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkbg to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <span class="text-xs font-bold text-secondary uppercase tracking-wider mb-2 block">Fullstack Web
+                            App</span>
+                        <h3 class="text-xl font-bold mb-3 text-white">Task Management Portal</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-3">A complete productivity tool built using
+                            React for the frontend and Python/SQL backend. Features drag-and-drop mechanics and
+                            real-time updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">React</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">JS</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">SQL</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center text-accent hover:text-white transition-colors text-sm font-semibold">
+                            View Project <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-48 overflow-hidden bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+                            alt="Analytics"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkbg to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <span class="text-xs font-bold text-accent uppercase tracking-wider mb-2 block">Data
+                            Engineering</span>
+                        <h3 class="text-xl font-bold mb-3 text-white">Analytics Dashboard</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-3">An interactive dashboard processing
+                            thousands of records daily. Connects straight to an SQL database, serving data rapidly via a
+                            REST UI.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">SQL</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">Python</span>
+                            <span class="px-2 py-1 text-xs rounded-md bg-white/10 text-slate-300">HTML/CSS</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center text-accent hover:text-white transition-colors text-sm font-semibold">
+                            View Project <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative bg-slate-900/30">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Let's
+                    Connect</span>
+            </h2>
+            <p class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">
+                Currently looking for new opportunities. Whether you have a question, a project idea, or just want to
+                say hi, my inbox is always open!
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
+                <!-- Email -->
+                <a href="mailto:contact@dilansandakelum.com"
+                    class="flex items-center gap-4 py-4 px-8 glass-card rounded-full hover:bg-white/10 transition duration-300 transform hover:-translate-y-1 group w-full sm:w-auto">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </div>
+                    <span class="font-semibold tracking-wide">Email Me</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-4 py-4 px-8 glass-card rounded-full hover:bg-white/10 transition duration-300 transform hover:-translate-y-1 group w-full sm:w-auto">
+                    <div
+                        class="w-12 h-12 rounded-full bg-[#0A66C2]/20 flex items-center justify-center text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </div>
+                    <span class="font-semibold tracking-wide">LinkedIn</span>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-4 py-4 px-8 glass-card rounded-full hover:bg-white/10 transition duration-300 transform hover:-translate-y-1 group w-full sm:w-auto">
+                    <div
+                        class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </div>
+                    <span class="font-semibold tracking-wide">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 bg-darkbg relative z-10 text-center">
+        <p class="text-slate-500 text-sm tracking-wide">
+            Designed & Built by <span class="text-primary font-semibold">Dilan Sandakelum</span>&copy; 2026
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
